@@ -57,7 +57,7 @@ class wbtc(IStrategy):
 
     # Buy hyperspace params:
     buy_params = {
-        "close": 1,
+        "open": 1,
     }
 
     # Sell hyperspace params:
@@ -115,7 +115,7 @@ class wbtc(IStrategy):
         dataframe.loc[
             # Prod
             (
-                dataframe['close'] < 1.00250000
+                dataframe['open'] < 1.00250000
             ),
             'buy'] = 1
         return dataframe
