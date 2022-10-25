@@ -1,0 +1,173 @@
+{
+"max_open_trades": 3,
+"stake_currency": "BUSD",
+"stake_amount": 0.05,
+"tradable_balance_ratio": 0.99,
+"fiat_display_currency": "USD",
+"timeframe": "30m",
+"dry_run": true,
+"cancel_open_orders_on_exit": false,
+"unfilledtimeout": {
+        "entry": 10,
+        "exit": 10,
+        "exit_timeout_count": 0,
+        "unit": "minutes"
+        },
+
+"entry_pricing": {
+        "price_side": "same",
+        "use_order_book": true,
+        "order_book_top": 1,
+        "price_last_balance": 0.0,
+        "check_depth_of_market": {
+            "enabled": false,
+            "bids_to_ask_delta": 1
+            }
+        },
+        "exit_pricing": {
+            "price_side": "same",
+            "use_order_book": true,
+            "order_book_top": 1
+        },
+ "pairlists": [
+        {"method": "StaticPairList"},
+            {
+                "method": "VolumePairList",
+                "number_assets": 20,
+                "sort_key": "quoteVolume",
+                "refresh_period": 1800
+                },
+        {"method": "AgeFilter", "min_days_listed": 10},
+        {"method": "PrecisionFilter"},
+        {"method": "PriceFilter", "low_price_ratio": 0.01, "min_price": 0.00000010},
+        {"method": "SpreadFilter", "max_spread_ratio": 0.005},
+                {
+                "method": "RangeStabilityFilter",
+                "lookback_days": 10,
+                "min_rate_of_change": 0.01,
+                "refresh_period": 1440
+                }
+            ],
+        
+"exchange": {
+        "name": "binance",
+        "key": "",
+        "secret": "",
+        "ccxt_config": {},
+        "ccxt_async_config": {},
+        "pair_whitelist": [
+        "RUNE/BUSD",
+        "DGB/BUSD",
+        "SOL/BUSD",
+        "LINK/BUSD",
+        "ATOM/BUSD",
+        "DOT/BUSD",
+        "ADA/BUSD",
+        "MATIC/BUSD",
+        "TRX/BUSD",
+        "XRP/BUSD",
+        "XTZ/BUSD",
+        "STX/BUSD",
+        "VET/BUSD",
+        "AUDIO/BUSD",
+        "CHZ/BUSD",
+        "ENJ/BUSD",
+        "TVK/BUSD",
+        "MANA/BUSD",
+        "SKL/BUSD",
+        "BOND/BUSD",
+        "ONE/BUSD",
+        "BAL/BUSD",
+        "CKB/BUSD",
+        "THETA/BUSD",
+        "BNT/BUSD",
+        "INJ/BUSD",
+        "REEF/BUSD",
+        "REN/BUSD",
+        "RSR/BUSD"      
+        ],
+        "pair_blacklist": [
+            // Exchange
+            "(BNB)/.*",
+            // Leverage
+            ".*(_PREMIUM|BEAR|BULL|HALF|HEDGE|UP|DOWN|[1235][SL])/.*",
+            // Fiat
+            "(AUD|BRZ|CAD|CHF|EUR|GBP|HKD|IDRT|JPY|NGN|RUB|SGD|TRY|UAH|USD|ZAR)/.*",
+            // Stable
+            "(CUSD|CBUSD|DAI|PAXG|SUSD|TUSD|USDC|USDN|USDP|BUSD|VAI|UST|USTC|AUSD)/.*",
+            // FAN
+            "(ACM|AFA|ALA|ALL|ALPINE|APL|ASR|ATM|BAR|CAI|CHZ|CITY|FOR|GAL|GOZ|IBFK|JUV|LEG|LOCK-1|NAVI|NMR|NOV|PFL|PSG|ROUSH|S>",
+            // Others
+            "(1EARTH|ILA|BOBA|CTXC|CWAR|HBAR|NMR|OMG|ONG|ARDR|DMTR|MLS|TORN|ANC|LUNA|BTS|QKC|COS)/.*"
+        ]
+    },          
+            
+        "edge": {
+            "enabled": false,
+            "process_throttle_secs": 3600,
+            "calculate_since_number_of_days": 7,
+            "allowed_risk": 0.01,
+            "stoploss_range_min": -0.01,
+            "stoploss_range_max": -0.1,
+            "stoploss_range_step": -0.01,
+            "minimum_winrate": 0.60,
+            "minimum_expectancy": 0.20,
+            "min_trade_number": 10,
+            "max_trade_duration_minute": 1440,
+            "remove_pumps": false
+              },
+        "telegram": {
+            "enabled": true,
+            "token": "5746855126:AAFkoE6wJ4V2azrrC_x6tLtixsRMkD_vjVk",
+            "chat_id": "737961726",
+            "notification_settings": {
+            "status": "on",
+            "warning": "on",
+            "startup": "on",
+            "buy": "on",
+            "buy_fill": "on",
+            "sell": {
+                      "roi": "off",
+                      "emergency_sell": "off",
+                      "force_sell": "off",
+                      "sell_signal": "off",
+                      "trailing_stop_loss": "off",
+                      "stop_loss": "off",
+                      "stoploss_on_exchange": "off",
+                      "custom_sell": "off"
+                      },
+                      "sell_fill": "on",
+                      "buy_cancel": "on",
+                      "sell_cancel": "on",
+                      "protection_trigger": "off",
+                      "protection_trigger_global": "on"
+                  },
+                  "reload": true,
+                  "balance_dust_level": 0.01
+              },
+              "api_server": {
+                  "enabled": true,
+                  "listen_ip_address": "127.0.0.1",
+                  "listen_port": 8082,
+                  "verbosity": "error",
+                  "enable_openapi": false,
+                  "jwt_secret_key": "XXXXXXXXXXX",
+                  "CORS_origins": ["http://localhost:8082"],
+                  "username": "Athena-Infinity-AI",
+                  "password": xxxxx"
+                  },
+                  "bot_name": "Athena-XXXXXXX,
+                  "initial_state": "running",
+                  "forcebuy_enable": false,
+                  "internals": {
+                  "process_throttle_secs": 5,
+                  "heartbeat_interval": 60
+                  },
+                  "disable_dataframe_checks": false,
+                  "strategy": "NostalgiaForInfinityX",
+                  "strategy_path": "ath02/user_data/strategies/",
+                  "dataformat_ohlcv": "json",
+                  "dataformat_trades": "jsongz"
+      }             
+    
+    
